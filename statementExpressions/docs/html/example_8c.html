@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Understanding statement expressions: statementExpTest.c File Reference</title>
+<title>Understanding statement expressions: example.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,7 +62,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('statementExpTest_8c.html','',''); });
+$(function(){initNavTree('example_8c.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -88,23 +88,29 @@ $(function(){initNavTree('statementExpTest_8c.html','',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">statementExpTest.c File Reference</div></div>
+  <div class="headertitle"><div class="title">example.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="defs_8h_source.html">defs.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 </div>
-<p><a href="statementExpTest_8c_source.html">Go to the source code of this file.</a></p>
+<p><a href="example_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97" id="r_a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>chaotic-Coder2002 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2025-10-31 </dd></dl>
-
-<p class="definition">Definition in file <a class="el" href="statementExpTest_8c_source.html">statementExpTest.c</a>.</p>
+<div class="textblock"><p>This program demonstrates how the macro <a class="el" href="defs_8h.html#af055c02d2d7220989e6c27d759e9b89c">maxInt(a, b)</a> does <em>variable shadowing</em></p>
+<p>Variable shadowing occurs when a variable declared in an inner scope takes precedence over a variable with the same name declared in an outer scope.</p>
+<p>Look at line 14. If we expand the call to the macro at that line, then this is what we get:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> c = ({</div>
+<div class="line"><span class="keywordtype">int</span> _a = _a; <span class="comment">// _a is actually the local variable here</span></div>
+<div class="line"><span class="keywordtype">int</span> _b = _b; <span class="comment">// same with _b, hence both initially store garbage value</span></div>
+<div class="line">_a &gt; _b ? _a : _b; <span class="comment">// so, garbage is returned. GIGO</span></div>
+<div class="line">});</div>
+</div><!-- fragment --> 
+<p class="definition">Definition in file <a class="el" href="example_8c_source.html">example.c</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a0ddf1224851353fc92bfbff6f499fa97" name="a0ddf1224851353fc92bfbff6f499fa97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&#160;</a></span>main()</h2>
@@ -125,19 +131,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="statementExpTest_8c_source.html#l00010">10</a> of file <a class="el" href="statementExpTest_8c_source.html">statementExpTest.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   10</span>                                 {</div>
-<div class="line"><span class="lineno">   11</span> </div>
-<div class="line"><span class="lineno">   12</span>  <span class="keywordtype">int</span> mx = <a class="code hl_define" href="defs_8h.html#affe776513b24d84b39af8ab0930fef7f">max</a>(10, 30);</div>
-<div class="line"><span class="lineno">   13</span> </div>
-<div class="line"><span class="lineno">   14</span>  printf(<span class="stringliteral">&quot;Max val: %d\n&quot;</span>, mx);</div>
-<div class="line"><span class="lineno">   15</span> </div>
-<div class="line"><span class="lineno">   16</span>  mx = <a class="code hl_define" href="defs_8h.html#af055c02d2d7220989e6c27d759e9b89c">maxInt</a>(40, 20);</div>
-<div class="line"><span class="lineno">   17</span>  printf(<span class="stringliteral">&quot;Max val: %d\n&quot;</span>, mx);</div>
-<div class="line"><span class="lineno">   18</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   19</span>}</div>
+<p class="definition">Definition at line <a class="el" href="example_8c_source.html#l00023">23</a> of file <a class="el" href="example_8c_source.html">example.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   23</span>                                 {</div>
+<div class="line"><span class="lineno">   24</span> </div>
+<div class="line"><span class="lineno">   25</span>  <span class="keywordtype">int</span> _a = 1, _b = 2;</div>
+<div class="line"><span class="lineno">   26</span> </div>
+<div class="line"><span class="lineno">   27</span>  <span class="keywordtype">int</span> c = <a class="code hl_define" href="defs_8h.html#af055c02d2d7220989e6c27d759e9b89c">maxInt</a>(_a, _b);</div>
+<div class="line"><span class="lineno">   28</span> </div>
+<div class="line"><span class="lineno">   29</span>  printf(<span class="stringliteral">&quot;Max: %d\n&quot;</span>, c);</div>
+<div class="line"><span class="lineno">   30</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   31</span>}</div>
 <div class="ttc" id="adefs_8h_html_af055c02d2d7220989e6c27d759e9b89c"><div class="ttname"><a href="defs_8h.html#af055c02d2d7220989e6c27d759e9b89c">maxInt</a></div><div class="ttdeci">#define maxInt(a, b)</div><div class="ttdoc">Again, finds the larger among a and b.</div><div class="ttdef"><b>Definition</b> <a href="defs_8h_source.html#l00032">defs.h:32</a></div></div>
-<div class="ttc" id="adefs_8h_html_affe776513b24d84b39af8ab0930fef7f"><div class="ttname"><a href="defs_8h.html#affe776513b24d84b39af8ab0930fef7f">max</a></div><div class="ttdeci">#define max(a, b)</div><div class="ttdoc">Finds the larger one among a and b.</div><div class="ttdef"><b>Definition</b> <a href="defs_8h_source.html#l00030">defs.h:30</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -154,7 +158,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="statementExpTest_8c.html">statementExpTest.c</a></li>
+    <li class="navelem"><a href="example_8c.html">example.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
