@@ -1,0 +1,20 @@
+\doxysection{example1.\+c}
+\hypertarget{example1_8c-example}{}\label{example1_8c-example}If a statement expression ends with an expression, the type and value are determined by the final expression i.\+e the expression with which the statement expression ended. So, in this program, the return type of the statement expression is actually a {\ttfamily float} because the final expression of the statement expression is\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(float)a\ /\ b;}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])\ \{}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}\%f\(\backslash\)n"{}},\ (\{\textcolor{keywordtype}{int}\ a\ =\ 10,\ b\ =\ 30;\ (float)a\ /\ b;\}));}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

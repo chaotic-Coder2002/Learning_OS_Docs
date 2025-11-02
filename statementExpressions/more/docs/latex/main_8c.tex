@@ -1,0 +1,61 @@
+\doxysection{main.\+c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{main.c@{main.c}}
+
+
+Where statement expressions can be used.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Where statement expressions can be used. 
+
+Statement expressions, like expressions, have a type, compute a value and can be used wherever expressions are accepted\+: declarations, initializers, expression statements, expressions, selection({\ttfamily if}, {\ttfamily switch}) and iterations ({\ttfamily while}, {\ttfamily do}, {\ttfamily for}) statements, the {\ttfamily return} statements.
+
+An exception to this is that statement expressions have to be within a function or a block, no file scope statement expressions are allowed. So, the following program is incorrect\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ a\ =\ (\{1;\});\ \textcolor{comment}{//\ ERROR!}}
+\DoxyCodeLine{inf\ foo(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ a;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+A statement expression has type {\ttfamily void} if the last statement is not an expression that returns a value. The statement at line 32 is of type {\ttfamily void} because it ends with a declaration. But it will be invalid it is used as an rvalue. But the statement at line 34 is of type {\ttfamily int} because it ends with the statement {\ttfamily a} {\ttfamily =} {\ttfamily 1}; where {\ttfamily a} is of type {\ttfamily int} 
+
+Definition in file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{main_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a0ddf1224851353fc92bfbff6f499fa97}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00030}{30}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ (\{\textcolor{keywordtype}{int}\ b\ =\ 10;\});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{int}\ val\ =\ (\{\textcolor{keywordtype}{int}\ a;\ a\ =\ 1;\});}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}
