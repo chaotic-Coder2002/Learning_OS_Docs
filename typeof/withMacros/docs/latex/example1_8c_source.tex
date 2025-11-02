@@ -1,0 +1,33 @@
+\doxysection{example1.\+c}
+\hypertarget{example1_8c_source}{}\label{example1_8c_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include<time.h>}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include<stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{defs.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00006}00006\ \textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])\ \{}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00007}00007\ \ \ srand(time(NULL));}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00009}00009\ \ \ \textcolor{keywordtype}{int}\ max;}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00011}00011\ \ \ \textcolor{keywordtype}{int}\ size\ =\ 10;}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00013}00013\ \ \ \textcolor{keywordtype}{int}\ vec[size];}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00015}00015\ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00016}00016\ \ \ \ \ vec[i]\ =\ rand()\ \%\ 26\ +\ 5;\ \textcolor{comment}{//\ random\ numbers\ between\ 5\ and\ 30}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00017}00017\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%d\ "{}},\ vec[i]);}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00018}00018\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00019}00019\ \ \ puts(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00021}00021\ \ \ \textcolor{keywordtype}{int}\ *temp\ =\ vec;}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00023}00023\ \ \ \mbox{\hyperlink{defs_8h_a717400780ddf246b30da08d8e1e77c8c}{FINDMAX}}(max,\ ++temp,\ -\/-\/size);}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00025}00025\ \ \ printf(\textcolor{stringliteral}{"{}Max:\ \%d\(\backslash\)n"{}},\ max);}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00027}00027\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00028}00028\ \}}
+
+\end{DoxyCode}

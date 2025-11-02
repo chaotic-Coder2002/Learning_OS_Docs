@@ -1,0 +1,69 @@
+\doxysection{defs.\+h File Reference}
+\hypertarget{defs_8h}{}\label{defs_8h}\index{defs.h@{defs.h}}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{defs_8h_a717400780ddf246b30da08d8e1e77c8c}{FINDMAX}}(m,  v,  n)
+\begin{DoxyCompactList}\small\item\em Finds the maximum element from the vector {\ttfamily v} of size {\ttfamily n}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{defs_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{defs_8h_a717400780ddf246b30da08d8e1e77c8c}\index{defs.h@{defs.h}!FINDMAX@{FINDMAX}}
+\index{FINDMAX@{FINDMAX}!defs.h@{defs.h}}
+\doxysubsubsection{\texorpdfstring{FINDMAX}{FINDMAX}}
+{\footnotesize\ttfamily \label{defs_8h_a717400780ddf246b30da08d8e1e77c8c} 
+\#define FINDMAX(\begin{DoxyParamCaption}\item[{}]{m}{, }\item[{}]{v}{, }\item[{}]{n}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ typeof((v)[0])\ *\ \_v\ =\ v;\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ typeof(n)\ \_n\ =\ n;\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}\_n\ =\ \%d\(\backslash\)n"{}},\ \_n);\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ typeof(m)\ \_m\ =\ \_v[0];\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}*\_v\ =\ \%d\(\backslash\)n"{}},\ *\_v);\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ for(\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ \_n;\ i++)\ \{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ if(\_v[i]\ >\ \_m)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \_m\ =\ \_v[i];\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ (m)\ =\ \_m;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \}}
+
+\end{DoxyCode}
+
+
+Finds the maximum element from the vector {\ttfamily v} of size {\ttfamily n}. 
+
+The statement at line 24 basically determines the type of an element of the given vector {\ttfamily v} and then declares a pointer of that type named {\ttfamily \+\_\+v}. Note that the expression is {\ttfamily typeof((v)\mbox{[}0\mbox{]})} and not {\ttfamily typeof(v\mbox{[}0\mbox{]})} because {\ttfamily v} could be an expression performing pointer arithmetic as well.
+
+The statement is shown below\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{typeof((v)[0])\ *\ \_v\ =\ v;}
+
+\end{DoxyCode}
+ \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{example1_8c-example}{example1.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{defs_8h_source_l00022}{22}} of file \mbox{\hyperlink{defs_8h_source}{defs.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ FINDMAX(m,\ v,\ n)\(\backslash\)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\ \ \{\(\backslash\)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\ \ \ \ typeof((v)[0])\ *\ \_v\ =\ v;\(\backslash\)}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\ \ \ \ typeof(n)\ \_n\ =\ n;\(\backslash\)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ printf("{}\_n\ =\ \%d\(\backslash\)n"{},\ \_n);\(\backslash\)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ typeof(m)\ \_m\ =\ \_v[0];\(\backslash\)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ printf("{}*\_v\ =\ \%d\(\backslash\)n"{},\ *\_v);\(\backslash\)}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ for(int\ i\ =\ 1;\ i\ <\ \_n;\ i++)\ \{\(\backslash\)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \ \ \ \ if(\_v[i]\ >\ \_m)\(\backslash\)}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\ \ \ \ \_m\ =\ \_v[i];\(\backslash\)}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ \ \ \}\(\backslash\)}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\ \ \ \ (m)\ =\ \_m;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\ \ \}}}
+
+\end{DoxyCode}

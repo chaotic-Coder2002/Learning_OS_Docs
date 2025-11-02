@@ -1,0 +1,49 @@
+\doxysection{example1.\+c}
+\hypertarget{example1_8c-example}{}\label{example1_8c-example}In this example, the macro {\ttfamily FINDMAX} is called by passing expressions rather than variables as arguments. After argument substitution, the expressions which are specified as macro parameters are evaluated only once. That is achieved by using local variables inside the macro definition. The macro invocation\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{defs_8h_a717400780ddf246b30da08d8e1e77c8c}{FINDMAX}}(max,\ ++temp,\ -\/-\/size);}
+
+\end{DoxyCode}
+ actually looks like this after macro substitution\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{typeof((++v)[0]))\ *\ \_v\ =\ ++v;\ \textcolor{comment}{//\ this\ is\ where\ the\ incrementation\ happens}}
+\DoxyCodeLine{typeof(-\/-\/n)\ \_n\ =\ -\/-\/n;\ \textcolor{comment}{//\ this\ is\ where\ the\ decrementation\ happens}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ and\ so\ on...}}
+
+\end{DoxyCode}
+ Without local copies of macro parameters, they would be evaluated in every iteration of the {\ttfamily for} loop
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include<time.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include<stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{defs.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])\ \{}
+\DoxyCodeLine{\ \ srand(time(NULL));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ max;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ size\ =\ 10;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ vec[size];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ vec[i]\ =\ rand()\ \%\ 26\ +\ 5;\ \textcolor{comment}{//\ random\ numbers\ between\ 5\ and\ 30}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}\%d\ "{}},\ vec[i]);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ puts(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ *temp\ =\ vec;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{defs_8h_a717400780ddf246b30da08d8e1e77c8c}{FINDMAX}}(max,\ ++temp,\ -\/-\/size);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}Max:\ \%d\(\backslash\)n"{}},\ max);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

@@ -1,0 +1,60 @@
+\doxysection{example1.\+c File Reference}
+\hypertarget{example1_8c}{}\label{example1_8c}\index{example1.c@{example1.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}defs.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{example1_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+In this example, the macro {\ttfamily FINDMAX} is called by passing expressions rather than variables as arguments. After argument substitution, the expressions which are specified as macro parameters are evaluated only once. That is achieved by using local variables inside the macro definition. 
+
+Definition in file \mbox{\hyperlink{example1_8c_source}{example1.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{example1_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{example1_8c_a0ddf1224851353fc92bfbff6f499fa97}\index{example1.c@{example1.c}!main@{main}}
+\index{main@{main}!example1.c@{example1.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{example1_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{example1_8c_source_l00006}{6}} of file \mbox{\hyperlink{example1_8c_source}{example1.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00007\ \ \ srand(time(NULL));}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \textcolor{keywordtype}{int}\ max;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \textcolor{keywordtype}{int}\ size\ =\ 10;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{int}\ vec[size];}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ vec[i]\ =\ rand()\ \%\ 26\ +\ 5;\ \textcolor{comment}{//\ random\ numbers\ between\ 30\ and\ 5}}
+\DoxyCodeLine{00017\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%d\ "{}},\ vec[i]);}
+\DoxyCodeLine{00018\ \ \ \}}
+\DoxyCodeLine{00019\ \ \ puts(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{int}\ *temp\ =\ vec;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{defs_8h_a717400780ddf246b30da08d8e1e77c8c}{FINDMAX}}(max,\ ++temp,\ -\/-\/size);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ printf(\textcolor{stringliteral}{"{}Max:\ \%d\(\backslash\)n"{}},\ max);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}
