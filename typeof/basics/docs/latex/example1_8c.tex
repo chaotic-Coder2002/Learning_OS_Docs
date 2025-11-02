@@ -1,0 +1,68 @@
+\doxysection{example1.\+c File Reference}
+\hypertarget{example1_8c}{}\label{example1_8c}\index{example1.c@{example1.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{example1_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This program demonstrates how the {\ttfamily typeof} operator is used to declare pointers and arrays. 
+
+Definition in file \mbox{\hyperlink{example1_8c_source}{example1.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{example1_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{example1_8c_a0ddf1224851353fc92bfbff6f499fa97}\index{example1.c@{example1.c}!main@{main}}
+\index{main@{main}!example1.c@{example1.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{example1_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{example1_8c_source_l00011}{11}} of file \mbox{\hyperlink{example1_8c_source}{example1.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ srand(time(NULL));}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{int}\ a\ =\ 10;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ typeof(\textcolor{keywordtype}{int}\ *)\ p1,\ p2;\ \textcolor{comment}{//\ int\ pointers}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ p1\ =\ \&a;}
+\DoxyCodeLine{00020\ \ \ p2\ =\ p1;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ typeof(\textcolor{keywordtype}{int})\ *p3,\ p4;\ \textcolor{comment}{//\ int\ pointer\ p3\ and\ an\ int\ p4}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ p3\ =\ calloc(5,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));\ \textcolor{comment}{//\ allocating\ memory\ space\ to\ p3}}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 5;\ i++)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ p3[i]\ =\ rand()\ \%\ 5\ +\ 1;\ \textcolor{comment}{//\ generate\ random\ numbers\ in\ the\ range\ [1,\ 5]}}
+\DoxyCodeLine{00027\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%d\ "{}},\ p3[i]);}
+\DoxyCodeLine{00028\ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ p4\ =\ 12\ *\ p3[3];}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ free(p3);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)np4\ =\ \%d\(\backslash\)n"{}},\ p4);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ typeof(\textcolor{keywordtype}{int}[10])\ a1,\ a2;\ \textcolor{comment}{//\ declares\ two\ arrays\ a1\ and\ a2\ that\ can\ hold\ 10\ integers\ each}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ typeof(\textcolor{keywordtype}{char}*\ \textcolor{keyword}{const})\ p\ =\ \textcolor{stringliteral}{"{}Hello\ world"{}};\ \textcolor{comment}{//\ declares\ a\ const\ qualified\ char\ pointer\ p\ which\ means\ it\ can't\ be\ modified}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}

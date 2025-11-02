@@ -1,0 +1,45 @@
+\doxysection{example1.\+c}
+\hypertarget{example1_8c-example}{}\label{example1_8c-example}An example showing the declaration of pointers and arrays.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include<time.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include<stdlib.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ srand(time(NULL));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ a\ =\ 10;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ typeof(\textcolor{keywordtype}{int}\ *)\ p1,\ p2;\ \textcolor{comment}{//\ int\ pointers}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ p1\ =\ \&a;}
+\DoxyCodeLine{\ \ p2\ =\ p1;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ typeof(\textcolor{keywordtype}{int})\ *p3,\ p4;\ \textcolor{comment}{//\ int\ pointer\ p3\ and\ an\ int\ p4}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ p3\ =\ calloc(5,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));\ \textcolor{comment}{//\ allocating\ memory\ space\ to\ p3}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 5;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ p3[i]\ =\ rand()\ \%\ 5\ +\ 1;\ \textcolor{comment}{//\ generate\ random\ numbers\ in\ the\ range\ [1,\ 5]}}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}\%d\ "{}},\ p3[i]);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ p4\ =\ 12\ *\ p3[3];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ free(p3);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)np4\ =\ \%d\(\backslash\)n"{}},\ p4);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ typeof(\textcolor{keywordtype}{int}[10])\ a1,\ a2;\ \textcolor{comment}{//\ declares\ two\ arrays\ a1\ and\ a2\ that\ can\ hold\ 10\ integers\ each}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ typeof(\textcolor{keywordtype}{char}*\ \textcolor{keyword}{const})\ p\ =\ \textcolor{stringliteral}{"{}Hello\ world"{}};\ \textcolor{comment}{//\ declares\ a\ const\ qualified\ char\ pointer\ p\ which\ means\ it\ can't\ be\ modified}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

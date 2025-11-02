@@ -1,0 +1,42 @@
+\doxysection{example1.\+c}
+\hypertarget{example1_8c_source}{}\label{example1_8c_source}\mbox{\hyperlink{example1_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include<time.h>}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include<stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00011}00011\ \textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])\ \{}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00013}00013\ \ \ srand(time(NULL));}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00015}00015\ \ \ \textcolor{keywordtype}{int}\ a\ =\ 10;}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00017}00017\ \ \ typeof(\textcolor{keywordtype}{int}\ *)\ p1,\ p2;\ \textcolor{comment}{//\ int\ pointers}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00019}00019\ \ \ p1\ =\ \&a;}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00020}00020\ \ \ p2\ =\ p1;}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00022}00022\ \ \ typeof(\textcolor{keywordtype}{int})\ *p3,\ p4;\ \textcolor{comment}{//\ int\ pointer\ p3\ and\ an\ int\ p4}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00024}00024\ \ \ p3\ =\ calloc(5,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));\ \textcolor{comment}{//\ allocating\ memory\ space\ to\ p3}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00025}00025\ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 5;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00026}00026\ \ \ \ \ p3[i]\ =\ rand()\ \%\ 5\ +\ 1;\ \textcolor{comment}{//\ generate\ random\ numbers\ in\ the\ range\ [1,\ 5]}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00027}00027\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%d\ "{}},\ p3[i]);}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00028}00028\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00030}00030\ \ \ p4\ =\ 12\ *\ p3[3];}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00032}00032\ \ \ free(p3);}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00034}00034\ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)np4\ =\ \%d\(\backslash\)n"{}},\ p4);}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00036}00036\ \ \ typeof(\textcolor{keywordtype}{int}[10])\ a1,\ a2;\ \textcolor{comment}{//\ declares\ two\ arrays\ a1\ and\ a2\ that\ can\ hold\ 10\ integers\ each}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00038}00038\ \ \ typeof(\textcolor{keywordtype}{char}*\ \textcolor{keyword}{const})\ p\ =\ \textcolor{stringliteral}{"{}Hello\ world"{}};\ \textcolor{comment}{//\ declares\ a\ const\ qualified\ char\ pointer\ p\ which\ means\ it\ can't\ be\ modified}}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00041}00041\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{example1_8c_source_l00042}00042\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,51 @@
+\doxysection{defs.\+h File Reference}
+\hypertarget{defs_8h}{}\label{defs_8h}\index{defs.h@{defs.h}}
+
+
+The {\ttfamily typeof} operator.  
+
+
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{defs_8h_a6d7c827ccd9c7dd15d755a233c0fb5ce}{get\+Type}}(type\+Or\+Expr)
+\begin{DoxyCompactList}\small\item\em accepts a type or an expression \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The {\ttfamily typeof} operator. 
+
+
+
+Definition in file \mbox{\hyperlink{defs_8h_source}{defs.\+h}}.
+
+
+
+\label{doc-define-members}
+\Hypertarget{defs_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{defs_8h_a6d7c827ccd9c7dd15d755a233c0fb5ce}\index{defs.h@{defs.h}!getType@{getType}}
+\index{getType@{getType}!defs.h@{defs.h}}
+\doxysubsubsection{\texorpdfstring{getType}{getType}}
+{\footnotesize\ttfamily \label{defs_8h_a6d7c827ccd9c7dd15d755a233c0fb5ce} 
+\#define get\+Type(\begin{DoxyParamCaption}\item[{}]{type\+Or\+Expr}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ typeof(typeOrExpr)}
+
+\end{DoxyCode}
+
+
+accepts a type or an expression 
+
+This macro basically accepts the name of a type or an expression as a parameter and uses the {\ttfamily typeof} operator to get the type of the name or the expression. {\ttfamily typeof} also accepts bits-\/fields as argument which is interpreted as corresponding integer type. 
+
+Definition at line \mbox{\hyperlink{defs_8h_source_l00018}{18}} of file \mbox{\hyperlink{defs_8h_source}{defs.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ getType(typeOrExpr)\(\backslash\)}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ typeof(typeOrExpr)}}
+
+\end{DoxyCode}
