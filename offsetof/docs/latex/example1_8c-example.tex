@@ -1,0 +1,43 @@
+\doxysection{example1.\+c}
+\hypertarget{example1_8c-example}{}\label{example1_8c-example}This is an example supporting \href{https://stackoverflow.com/a/713970}{\texttt{this answer}} in Stack\+Overflow.
+
+In the line {\ttfamily unsigned} {\ttfamily int} {\ttfamily offset} {\ttfamily =} {\ttfamily }({\ttfamily size\+\_\+t}) {\ttfamily \&s-\/\texorpdfstring{$>$}{>}d}, the {\ttfamily -\/\texorpdfstring{$>$}{>}} operator is not used to access the value of the field {\ttfamily d}, it\textquotesingle{}s instead used to access its address. So, here we cannot say that the we are dereferencing the {\ttfamily \doxylink{structSample}{Sample}} pointer {\ttfamily s}. So, since no dereferencing is happening here, the following lines are valid as well\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structSample}{Sample}}\ *s2\ =\ NULL;}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ *dptr\ =\ \&s2-\/>\mbox{\hyperlink{structSample_aedb7ec86c6ec378339e538bb01f11a20}{d}};}
+
+\end{DoxyCode}
+
+
+Now, if {\ttfamily s2} is {\ttfamily NULL}, then how do we get an address of its field {\ttfamily d} ? I think \href{https://stackoverflow.com/a/35135814}{\texttt{this}} could be the answer to that question.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include<stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{defs.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *argv[])\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{structSample}{Sample}}\ *s\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structSample}{Sample}}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ offset\ =\ (size\_t)\ \&s-\/>\mbox{\hyperlink{structSample_aedb7ec86c6ec378339e538bb01f11a20}{d}};}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}\%u\(\backslash\)n"{}},\ offset);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ *dptr\ =\ \&s-\/>\mbox{\hyperlink{structSample_aedb7ec86c6ec378339e538bb01f11a20}{d}};}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}\%p\(\backslash\)n"{}},\ dptr);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{structSample}{Sample}}\ *s2\ =\ NULL;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ offset\ =\ (size\_t)\ \&s2-\/>\mbox{\hyperlink{structSample_aedb7ec86c6ec378339e538bb01f11a20}{d}};}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}\%u\(\backslash\)n"{}},\ offset);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ *dptr2\ =\ \&s2-\/>\mbox{\hyperlink{structSample_aedb7ec86c6ec378339e538bb01f11a20}{d}};}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}\%p\(\backslash\)n"{}},\ dptr2);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ free(s);}
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

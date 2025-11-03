@@ -1,0 +1,21 @@
+var NAVTREEINDEX0 =
+{
+"annotated.html":[0,0],
+"classes.html":[0,1],
+"defs_8h.html":[1,0,0],
+"defs_8h_source.html":[1,0,0],
+"example1_8c-example.html":[2,0],
+"example1_8c_source.html":[1,0,1],
+"examples.html":[2],
+"files.html":[1,0],
+"functions.html":[0,2,0],
+"functions_vars.html":[0,2,1],
+"index.html":[],
+"main_8c.html":[1,0,2],
+"main_8c_source.html":[1,0,2],
+"pages.html":[],
+"structSample.html":[0,0,0],
+"structSample.html#a076a55fdd1b04b68edc4e53539248544":[0,0,0,0],
+"structSample.html#abae3224ba841bcedbe02328246fbfa2a":[0,0,0,2],
+"structSample.html#aedb7ec86c6ec378339e538bb01f11a20":[0,0,0,1]
+};

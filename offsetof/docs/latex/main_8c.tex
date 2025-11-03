@@ -1,0 +1,73 @@
+\doxysection{main.\+c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{main.c@{main.c}}
+
+
+An example demonstrating the working of the {\ttfamily offsetof} macro.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}defs.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An example demonstrating the working of the {\ttfamily offsetof} macro. 
+
+The {\ttfamily offsetof} macro in C basically returns the offset of a structure member from the beginning of that structure.
+
+Here, the {\ttfamily size\+\_\+t} is an unsigned integer type used for a count of bytes. So, the following line\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ offset\ =\ (size\_t)\ \&((\mbox{\hyperlink{structSample}{Sample}}*)NULL)-\/>d;}
+
+\end{DoxyCode}
+ actually returns the offset of the field {\ttfamily d} from the beginning of {\ttfamily \doxylink{structSample}{Sample}} in bytes.
+
+The above line has been explored in details in the given example programs.
+
+The above line can also be written like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ offset\ =\ (size\_t)\ \&((\mbox{\hyperlink{structSample}{Sample}}*)0)-\/>d;}
+
+\end{DoxyCode}
+ They both mean the same. See \href{https://stackoverflow.com/a/13723512}{\texttt{here}}. 
+
+Definition in file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{main_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a0ddf1224851353fc92bfbff6f499fa97}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00040}{40}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{structSample}{Sample}}\ s;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ offset\ =\ (size\_t)\ \&((\mbox{\hyperlink{structSample}{Sample}}*)NULL)-\/>\mbox{\hyperlink{structSample_aedb7ec86c6ec378339e538bb01f11a20}{d}};}
+\DoxyCodeLine{00044\ \ \ printf(\textcolor{stringliteral}{"{}\%u\(\backslash\)n"{}},\ offset);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{double}\ *dptr\ =\ \&((\mbox{\hyperlink{structSample}{Sample}}*)NULL)-\/>d;}
+\DoxyCodeLine{00047\ \ \ printf(\textcolor{stringliteral}{"{}\%p\(\backslash\)n"{}},\ dptr);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{double}\ *dptr2\ =\ \&s.\mbox{\hyperlink{structSample_aedb7ec86c6ec378339e538bb01f11a20}{d}};}
+\DoxyCodeLine{00050\ \ \ printf(\textcolor{stringliteral}{"{}\%p\(\backslash\)n"{}},\ dptr2);}
+\DoxyCodeLine{00051\ \ \ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00053\ \}}
+
+\end{DoxyCode}
