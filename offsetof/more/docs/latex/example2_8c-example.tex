@@ -1,0 +1,41 @@
+\doxysection{example2.\+c}
+\hypertarget{example2_8c-example}{}\label{example2_8c-example}This is an example demonstrating the concept of finding the offset relative to a number.
+
+The structure {\ttfamily \doxylink{structSample}{Sample}\+:} 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structSample}{Sample}}\ \{}
+\DoxyCodeLine{\ \ \ \textcolor{keywordtype}{int}\ a;}
+\DoxyCodeLine{\ \ \ \textcolor{keywordtype}{int}\ b;}
+\DoxyCodeLine{\}\ \mbox{\hyperlink{structSample}{Sample}};}
+
+\end{DoxyCode}
+ contains two integers, {\ttfamily 4} bytes each.~\newline
+{\bfseries{Note\+:}} The base address of a structure is actually the address of the first byte of the structure.
+
+The statement {\ttfamily printf("{}\%p\textbackslash{}n"{}, \&((Sample\texorpdfstring{$\ast$}{*})0)-\/\texorpdfstring{$>$}{>}b);} basically prints the address of {\ttfamily b}. This will be {\ttfamily 0x4} or 4 bytes (structure padding), because {\ttfamily b} is {\ttfamily 4} bytes away from the base address, if {\ttfamily 0} is considered as the base address.~\newline
+ The next statement {\ttfamily printf("{}\%p\textbackslash{}n"{}, \&((Sample\texorpdfstring{$\ast$}{*})1)-\/\texorpdfstring{$>$}{>}b);} also prints the address of {\ttfamily b}. But this time, it will be {\ttfamily 0x5} or 5 bytes, because again, {\ttfamily b} is 4 bytes away from the base address, so its address is calculated as {\ttfamily (1 + 4) bytes}.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structSample}{Sample}}\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ a;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ b;}
+\DoxyCodeLine{\}\ \mbox{\hyperlink{structSample}{Sample}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}\%zu\(\backslash\)n"{}},\ (\textcolor{keywordtype}{size\_t})\ \&((\mbox{\hyperlink{structSample}{Sample}}*)0)-\/>b);}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}\%p\(\backslash\)n"{}},\ \&((\mbox{\hyperlink{structSample}{Sample}}*)0)-\/>b);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}\%zu\(\backslash\)n"{}},\ (\textcolor{keywordtype}{size\_t})\ \&((\mbox{\hyperlink{structSample}{Sample}}*)1)-\/>b);}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}\%p\(\backslash\)n"{}},\ \&((\mbox{\hyperlink{structSample}{Sample}}*)1)-\/>b);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

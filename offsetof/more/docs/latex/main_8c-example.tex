@@ -1,0 +1,51 @@
+\doxysection{main.\+c}
+\hypertarget{main_8c-example}{}\label{main_8c-example}This program demonstrates how to get to the address of the parent {\ttfamily struct} using the {\ttfamily struct} nested inside it.
+
+First, we are assigning the address of {\ttfamily bird\+Nest} to {\ttfamily nested\+Struct} by typecasting its address into an array of bytes\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ *nestedStruct\ =\ (\textcolor{keywordtype}{char}*)\ \&aTree.birdNest;}
+
+\end{DoxyCode}
+ The reason why we are typecasting to {\ttfamily char\texorpdfstring{$\ast$}{*}} is that in C, a {\ttfamily char} is 1 byte and a {\ttfamily char\texorpdfstring{$\ast$}{*}} points to an array of 1 bytes and the offset that will get for {\ttfamily bird\+Nest} from the base address of the {\ttfamily struct} {\ttfamily \doxylink{structTree}{Tree}} will also be in bytes, so performing pointer arithmetic on the offset will actually give us the correct result.
+
+Now, the line\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structTree}{Tree}}\ *temp\ =\ (\mbox{\hyperlink{structTree}{Tree}}*)(nestedStruct\ -\/\ (\textcolor{keywordtype}{size\_t})\ \&((\mbox{\hyperlink{structTree}{Tree}}*)0)-\/>birdNest);}
+
+\end{DoxyCode}
+ Let\textquotesingle{}s first focus on the second part of the line i.\+e. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\&((\mbox{\hyperlink{structTree}{Tree}}*)0)-\/>birdNest;}
+
+\end{DoxyCode}
+ Here, {\ttfamily \&((Tree\texorpdfstring{$\ast$}{*})0)-\/\texorpdfstring{$>$}{>}bird\+Nest} basically gives the address of {\ttfamily bird\+Nest} {\itshape relative} to {\ttfamily 0}. This address is then typecast to bytes by the {\ttfamily size\+\_\+t} type.
+
+After that the the usual pointer arithmetic is performed. Let\textquotesingle{}s say for example {\ttfamily \&((Tree\texorpdfstring{$\ast$}{*})0)-\/\texorpdfstring{$>$}{>}bird\+Nest} gave the address of {\ttfamily bird\+Nest} to be {\ttfamily 0x8} (which is {\ttfamily 8} in decimal), then typecasting it to a {\ttfamily size\+\_\+t} type will give us an {\ttfamily 8} which is actually {\ttfamily 8} bytes. So, the statement {\ttfamily Tree\texorpdfstring{$\ast$}{*} temp = (Tree\texorpdfstring{$\ast$}{*})(nested\+Struct -\/ (size\+\_\+t) \&((Tree\texorpdfstring{$\ast$}{*})0)-\/\texorpdfstring{$>$}{>}bird\+Nest);} in this case will be simplified to\+: {\ttfamily Tree\texorpdfstring{$\ast$}{*} temp = (Tree\texorpdfstring{$\ast$}{*})(nested\+Struct -\/ 8);}, which is regular pointer arithmetic in C.
+
+Now, let\textquotesingle{}s understand this with an example, consider that we have a {\ttfamily char} array of 10 characters. For simplicity, let\textquotesingle{}s use decimal numbers as addresses of each element. Since there are 10 elements in the array, so let\textquotesingle{}s say that the starting address is {\ttfamily 1001} and let\textquotesingle{}s say that there is an element at address {\ttfamily 1005} and we have set a pointer pointing to that address. Now, we want the pointer to point to the address {\ttfamily 1001}. We can see that the address {\ttfamily 1005} is 4 bytes away from {\ttfamily 1001}. So, now, all we have to do is subtract {\ttfamily 4} from the address {\ttfamily 1005} and we will get to the starting/base address of the array. Let\textquotesingle{}s assume that {\ttfamily p} is the pointer pointing to address {\ttfamily 1005}, so in order for {\ttfamily p} to point to {\ttfamily 1001}, we will do\+: {\ttfamily p = p -\/ 4} and that way {\ttfamily p} will finally point to {\ttfamily 1001}.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{defs.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{structTree}{Tree}}\ aTree\ =\ \{\textcolor{stringliteral}{"{}Mango"{}},\ \{5,\ 2\}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}sizeof(Nest):\ \%zu\(\backslash\)n"{}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structNest}{Nest}}));}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}sizeof(Tree):\ \%zu\(\backslash\)n"{}},\ \textcolor{keyword}{sizeof}(aTree));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{char}*\ nestedStruct\ =\ (\textcolor{keywordtype}{char}*)\ \&aTree.\mbox{\hyperlink{structTree_a0c8ea926031cf1d1666fd2a3a8c2ec56}{birdNest}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{structTree}{Tree}}\ *temp\ =\ (\mbox{\hyperlink{structTree}{Tree}}*)(nestedStruct\ -\/\ (\textcolor{keywordtype}{size\_t})\ \&((\mbox{\hyperlink{structTree}{Tree}}*)0)-\/>birdNest);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}sizeof(*temp):\ \%zu\(\backslash\)n"{}},\ \textcolor{keyword}{sizeof}(*temp));}
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

@@ -1,0 +1,23 @@
+\doxysection{main.\+c}
+\hypertarget{main_8c_source}{}\label{main_8c_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{defs.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00004}00004\ \textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00006}00006\ \ \ \mbox{\hyperlink{structTree}{Tree}}\ aTree\ =\ \{\textcolor{stringliteral}{"{}Mango"{}},\ \{5,\ 2\}\};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00008}00008\ \ \ printf(\textcolor{stringliteral}{"{}sizeof(Nest):\ \%zu\(\backslash\)n"{}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structNest}{Nest}}));}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00009}00009\ \ \ printf(\textcolor{stringliteral}{"{}sizeof(Tree):\ \%zu\(\backslash\)n"{}},\ \textcolor{keyword}{sizeof}(aTree));}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00011}00011\ \ \ \textcolor{keywordtype}{char}*\ nestedStruct\ =\ (\textcolor{keywordtype}{char}*)\ \&aTree.\mbox{\hyperlink{structTree_a0c8ea926031cf1d1666fd2a3a8c2ec56}{birdNest}};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00013}00013\ \ \ \mbox{\hyperlink{structTree}{Tree}}\ *temp\ =\ (\mbox{\hyperlink{structTree}{Tree}}*)(nestedStruct\ -\/\ (\textcolor{keywordtype}{size\_t})\ \&((\mbox{\hyperlink{structTree}{Tree}}*)0)-\/>birdNest);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00015}00015\ \ \ printf(\textcolor{stringliteral}{"{}sizeof(*temp):\ \%zu\(\backslash\)n"{}},\ \textcolor{keyword}{sizeof}(*temp));}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00016}00016\ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00017}00017\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00018}00018\ \}}
+
+\end{DoxyCode}
