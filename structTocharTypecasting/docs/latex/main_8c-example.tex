@@ -1,0 +1,37 @@
+\doxysection{main.\+c}
+\hypertarget{main_8c-example}{}\label{main_8c-example}An example demonstrating how typcasting a {\ttfamily (struct\texorpdfstring{$\ast$}{*})} to {\ttfamily (char\texorpdfstring{$\ast$}{*})} helps in visualizing the structure members clearly.
+
+In this example, {\ttfamily printf("{}\&s.\+a\+: \%p\textbackslash{}n"{}, \&s.\+a);} displays the address of the field {\ttfamily a} of the struct {\ttfamily \doxylink{structSample}{Sample}}.~\newline
+ The line {\ttfamily printf("{}sptr\+: \%p\textbackslash{}n"{}, sptr);} also displays the same address. But here, that address is the address of the first byte of the byte array (and also of {\ttfamily \doxylink{structSample}{Sample}}). The consecutive byte addresses can also be accessed via simple pointer arithmetic, which cannot be done with the {\ttfamily \doxylink{structSample}{Sample}} instance {\ttfamily s}.~\newline
+~\newline
+ In the next line, {\ttfamily printf("{}\&s.\+d\+: \%p\textbackslash{}n"{}, \&s.\+d);} prints the address of the field {\ttfamily d}. Note that {\ttfamily d} is at an offset of 8 bytes from the starting/base address of {\ttfamily \doxylink{structSample}{Sample}} struct. Hence, using this information, we can add an 8 to the base address of the byte pointed to by the {\ttfamily char} pointer {\ttfamily sptr}. And so the line {\ttfamily printf("{}sptr + 8\+: \%p\textbackslash{}n"{}, sptr + 8);} also produces the same address as that of the {\ttfamily \&s.\+d}.~\newline
+~\newline
+The {\ttfamily for} loop given in this program accesses all the addresses of each byte and prints them onto the screen. There will be a total of 16 addresses (one for each byte, hence 16 bytes).
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{defs.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{structSample}{Sample}}\ s\ =\ \{10,\ 10.5\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ typecasting\ the\ address\ of\ s\ to\ an\ array\ of\ bytes}}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{char}*\ sptr\ =\ (\textcolor{keywordtype}{char}*)\ \&s;}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}\&s:\ \%p\(\backslash\)n"{}},\ \&s);\ \textcolor{comment}{//\ displays\ the\ address\ of\ the\ struct\ variable\ s}}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}sptr:\ \%p\(\backslash\)n"{}},\ sptr);\ \textcolor{comment}{//\ displays\ the\ base\ address\ i.e.\ the\ address\ of\ the\ first\ byte\ of\ the\ struct}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}\&s.a:\ \%p\(\backslash\)n"{}},\ \&s.a);}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}sptr:\ \%p\(\backslash\)n"{}},\ sptr);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}\&s.d:\ \%p\(\backslash\)n"{}},\ \&s.d);}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}sptr\ +\ 8:\ \%p\(\backslash\)n"{}},\ sptr\ +\ 8);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ viewing\ addresses\ of\ each\ byte}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \textcolor{keyword}{sizeof}(s);\ i++)}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}\%p\(\backslash\)n"{}},\ sptr\ +\ i);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 
